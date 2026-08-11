@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Item de Movimentação - Sistema de Extintores</title>
+    <link rel="stylesheet" href="styles/novoExtintor.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sistema de Extintores</h2>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ph ph-squares-four"></i> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="extintores.html" class="nav-link">
+                    <i class="ph ph-fire"></i> Extintores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="movimentacoes.html" class="nav-link active">
+                    <i class="ph ph-arrows-left-right"></i> Movimentações
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="categorias.html" class="nav-link">
+                    <i class="ph ph-tree-structure"></i> Categorias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="localizacoes.html" class="nav-link">
+                    <i class="ph ph-map-pin"></i> Localizações
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-link">
+                <i class="ph ph-sign-out"></i> Sair
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="back-link">
+            <a href="#" id="link-voltar"><i class="ph ph-arrow-left"></i> Voltar</a>
+        </div>
+
+        <header class="page-header">
+            <div class="page-title">
+                <h1>Novo Item de Movimentação</h1>
+                <p>Preencha os dados do extintor movimentado</p>
+            </div>
+        </header>
+
+        <section class="content-card">
+            <form id="form-item-movimentacao">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="extintor">Extintor *</label>
+                        <select id="extintor" required>
+                            <option value="" disabled selected>Selecione o extintor</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destino">Destino *</label>
+                        <select id="destino" required>
+                            <option value="" disabled selected>Selecione a localização de destino</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo *</label>
+                        <select id="tipo" required>
+                            <option value="" disabled selected>Selecione o tipo</option>
+                            <option value="R">Recarga</option>
+                            <option value="I">Inspeção</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo-retorno">Tipo de Retorno</label>
+                        <select id="tipo-retorno">
+                            <option value="" selected>Nenhum</option>
+                            <option value="R">Recarregado</option>
+                            <option value="I">Inspecionado</option>
+                            <option value="S">Substituido</option>
+                            <option value="D">Descartado</option>
+                            <option value="E">Estoque</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="carga-vencimento">Carga Vencimento *</label>
+                        <input type="date" id="carga-vencimento" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="carga-prox-inspecao">Próxima Inspeção *</label>
+                        <input type="date" id="carga-prox-inspecao" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numero-substituto">Número do Substituto</label>
+                        <input type="text" id="numero-substituto" placeholder="Ex: EXT004 (se houve troca)">
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label for="conferido">
+                            <input type="checkbox" id="conferido">
+                            Conferido
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/novoItemMovimentacao.js"></script>
+    <script src="./scripts/logout.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+@import url(style.css);        
+
+
+        :root {
+            --card-bg: #efe9db;
+            --text-light: #ffffff;
+        }
+
+        /* CARDS GRID */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #dcd4c3;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Icon Colors */
+        .icon-red { background-color: #e5534b; }
+        .icon-blue { background-color: #3f88e4; }
+        .icon-purple { background-color: #9d5bb0; }
+        .icon-green { background-color: #2bba71; }
+
+        .card h3 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #556270;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }

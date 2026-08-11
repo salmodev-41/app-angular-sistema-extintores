@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Localização - Sistema de Extintores</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles/novaLocalizacao.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sistema de Extintores</h2>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ph ph-squares-four"></i> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="extintores.html" class="nav-link">
+                    <i class="ph ph-fire"></i> Extintores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="movimentacoes.html" class="nav-link">
+                    <i class="ph ph-arrows-left-right"></i> Movimentações
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="categorias.html" class="nav-link">
+                    <i class="ph ph-tree-structure"></i> Categorias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="localizacoes.html" class="nav-link active">
+                    <i class="ph ph-map-pin"></i> Localizações
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-link">
+                <i class="ph ph-sign-out"></i> Sair
+            </a>
+        </div>
+    </aside>
+
+    <main class="content">
+        <a href="localizacoes.html" class="back-button"><i class="ph ph-arrow-left"></i>Voltar</a>
+        <h1>Nova Localização</h1>
+        <p class="subtitle">Preencha os dados da nova localização</p>
+
+        <div class="form-panel">
+            <form id="form-nova-localizacao" action="#" method="post">
+                <div class="form-grid">
+                    
+                    <div class="form-group" id="grupo-codigo" style="display: none;">
+                        <label for="codigo">Código</label>
+                        <input type="text" id="codigo" name="codigo" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Codigo da Empresa <span class="required">*</span></label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Ex: Matriz" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição <span class="required">*</span></label>
+                        <input type="text" id="descricao" name="descricao" placeholder="Ex: Recepção" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="centro-custo">Centro de Custo <span class="required">*</span></label>
+                        <input type="text" id="centro-custo" name="centro-custo" placeholder="Ex: ADM-001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo <span class="required">*</span></label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="" disabled selected>Selecione o tipo</option>
+                            <option value="E">Estrutura</option>
+                            <option value="V">Veículo/Máquinas</option>
+                        </select>
+                    </div>
+
+                    <div></div>
+
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-secondary">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/novaLocalizacao.js"></script>
+    <script src="./scripts/logout.js"></script>
+</body>
+</html>

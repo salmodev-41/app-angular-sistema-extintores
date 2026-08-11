@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizações - Sistema de Extintores</title>
+    <link rel="stylesheet" href="styles/localizacoes.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sistema de Extintores</h2>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ph ph-squares-four"></i> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="extintores.html" class="nav-link">
+                    <i class="ph ph-fire"></i> Extintores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="movimentacoes.html" class="nav-link">
+                    <i class="ph ph-arrows-left-right"></i> Movimentações
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="categorias.html" class="nav-link">
+                    <i class="ph ph-tree-structure"></i> Categorias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="localizacoes.html" class="nav-link active">
+                    <i class="ph ph-map-pin"></i> Localizações
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-link">
+                <i class="ph ph-sign-out"></i> Sair
+            </a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div class="page-title">
+                <h1>Localizações</h1>
+                <p>Gerencie as localizações onde os extintores estão instalados</p>
+            </div>
+            <a href="novaLocalizacao.html" class="btn-primary">
+                <i class="ph ph-plus"></i> Nova Localização
+            </a>
+        </header>
+
+        <section class="content-card">
+            <div class="search-container">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar por empresa, descrição ou tipo...">
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Empresa</th>
+                            <th>Descrição</th>
+                            <th>Centro de Custo</th>
+                            <th>Tipo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/localizacoes.js"></script>
+    <script src="./scripts/logout.js"></script>
+</body>
+</html>

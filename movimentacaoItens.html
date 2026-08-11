@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itens da Movimentação - Sitema de Extintores</title>
+    <link rel="stylesheet" href="styles/movimentacoes.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sistema de Extintores</h2>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ph ph-squares-four"></i> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="extintores.html" class="nav-link">
+                    <i class="ph ph-fire"></i> Extintores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="movimentacoes.html" class="nav-link active">
+                    <i class="ph ph-arrows-left-right"></i> Movimentações
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="categorias.html" class="nav-link">
+                    <i class="ph ph-tree-structure"></i> Categorias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="localizacoes.html" class="nav-link">
+                    <i class="ph ph-map-pin"></i> Localizações
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-link">
+                <i class="ph ph-sign-out"></i> Sair
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="back-link">
+            <a href="movimentacoes.html"><i class="ph ph-arrow-left"></i> Voltar</a>
+        </div>
+
+        <header class="page-header">
+            <div class="page-title">
+                <h1>Itens da Movimentação</h1>
+                <p id="subtitulo-movimento">Gerencie os extintores desta movimentação</p>
+            </div>
+            <a href="#" id="link-novo-item" class="btn-primary">
+                <i class="ph ph-plus"></i> Novo Item
+            </a>
+        </header>
+
+        <section class="content-card">
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Extintor</th>
+                            <th>Destino</th>
+                            <th>Tipo</th>
+                            <th>Conferido</th>
+                            <th>Tipo Retorno</th>
+                            <th>Carga Vencimento</th>
+                            <th>Próx. Inspeção</th>
+                            <th>Nº Substituto</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/movimentacaoItem.js"></script>
+    <script src="./scripts/logout.js"></script>
+</body>
+</html>

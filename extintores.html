@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/extintores.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>Extintores - Sistema de Extintores</title>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sistema de Extintores</h2>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ph ph-squares-four"></i> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="extintores.html" class="nav-link active">
+                    <i class="ph ph-fire"></i> Extintores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="movimentacoes.html" class="nav-link">
+                    <i class="ph ph-arrows-left-right"></i> Movimentações
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="categorias.html" class="nav-link">
+                    <i class="ph ph-tree-structure"></i> Categorias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="localizacoes.html" class="nav-link">
+                    <i class="ph ph-map-pin"></i> Localizações
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-link">
+                <i class="ph ph-sign-out"></i> Sair
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <div class="header-info">
+                <h1>Extintores</h1>
+                <p>Gerencie todos os extintores cadastrados</p>
+            </div>
+            <a href="novoExtintor.html" class="btn-primary"><i class="ph ph-plus"></i> Novo Extintor</a>
+        </div>
+
+        <div class="content-card">
+            <div class="search-container">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar por código, tipo ou localização...">
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Tipo</th>
+                        <th>Capacidade</th>
+                        <th>Localização</th>
+                        <th>Centro de Custo</th>
+                        <th>Data Validade</th>
+                        <th>Data Prox. Inspeção</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/extintores.js"></script>
+    <script src="./scripts/logout.js"></script>
+</body>
+</html>

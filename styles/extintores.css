@@ -1,0 +1,104 @@
+@import url(style.css);
+ 
+        :root {
+            --card-bg: #efe9db;
+            --text-light: #ffffff;
+        }
+
+        
+        .page-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+            margin-bottom: 30px; 
+        }
+        .header-info h1 { 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            margin-bottom: 5px; 
+        }
+        .header-info p { 
+            color: var(--text-muted); 
+            font-size: 0.95rem; 
+        }
+        
+        .content-card { 
+            background-color: var(--card-bg); 
+            padding: 20px; 
+            border-radius: 12px; 
+            border: 1px solid #dcd4c3; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02); 
+        }
+        
+        .search-container { 
+            background: white; 
+            padding: 12px 15px; 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            margin-bottom: 20px; 
+            border: 1px solid #e0d8c9; 
+        }
+        .search-container input { 
+            border: none; 
+            outline: none; 
+            width: 100%; 
+            font-size: 0.95rem; 
+            color: var(--text-dark); 
+        }
+        .search-container i { 
+            color: #999; 
+        }
+
+        .data-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            text-align: left; 
+        }
+        .data-table th { 
+            padding: 12px 10px; 
+            font-weight: 600; color: #111; 
+            border-bottom: 2px solid #dcd4c3; 
+            font-size: 0.9rem; 
+        }
+        .data-table td { 
+            padding: 15px 10px;
+            border-bottom: 1px solid #dcd4c3;
+            color: #444; 
+            font-size: 0.9rem; 
+            vertical-align: middle; 
+        }
+        .data-table tr:last-child td { 
+            border-bottom: none; 
+        }
+
+        .actions { 
+            display: flex; 
+            gap: 15px; 
+        }
+        .btn-icon { 
+            background: none; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1.2rem; 
+            transition: 0.2s; 
+        }
+        .btn-icon.edit { 
+            color: #333; 
+        }
+        .btn-icon.delete { 
+            color: #d32f2f; 
+        }
+        .btn-icon:hover { 
+            transform: scale(1.1); 
+        }
+        
+        .badge { 
+            background: #d4edda; 
+            color: #155724; 
+            padding: 5px 10px; 
+            border-radius: 4px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+        }

@@ -1,0 +1,174 @@
+@import url(style.css);
+        
+        :root {
+            --primary-color: #11314C;
+            --bg-color-main: #F4F6F9; 
+            --bg-color-panel: #EAE5DB; 
+            --text-color: #2D3748;
+            --text-color-light: #718096;
+            --border-color: #CBD5E0;
+            --input-bg-color: #FFFFFF;
+            --white: #FFFFFF;
+            --red-star: #E53E3E;
+            --sidebar-active: rgba(255, 255, 255, 0.15);
+            --text-light: #ffffff;
+        }
+
+        /* Área de Conteúdo Principal */
+        main.content {
+            flex-grow: 1;
+            padding: 40px 50px;
+            overflow-y: auto;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+
+        .back-button:hover {
+            opacity: 0.7;
+        }
+
+        .content h1 {
+            font-size: 2.1rem;
+            color: #11314C;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .content p.subtitle {
+            color: var(--text-color-light);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        
+        .form-panel {
+            background-color: var(--bg-color-panel);
+            padding: 36px;
+            border-radius: 14px;
+            max-width: 760px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 24px;
+            row-gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #2D3748;
+        }
+
+        .form-group label span.required {
+            color: var(--red-star);
+            margin-left: 2px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg-color);
+            font-size: 0.95rem;
+            color: #2D3748;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input[type="text"]::placeholder,
+        .form-group textarea::placeholder {
+            color: #A0AEC0;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: none;
+        }
+
+        .helper-text {
+            font-size: 0.8rem;
+            color: #718096;
+            margin-top: 6px;
+            line-height: 1.3;
+        }
+
+        .action-buttons {
+            grid-column: span 2;
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .btn {
+            padding: 11px 24px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: #2D3748;
+            border: 1px solid #E2E8F0;
+        }
+
+        .btn-secondary:hover {
+            background-color: #F7FAFC;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #0b2235;
+        }
+
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width, .action-buttons {
+                grid-column: span 1;
+            }
+        }

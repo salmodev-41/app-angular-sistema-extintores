@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Extintores</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sistema de Extintores</h2>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link active">
+                    <i class="ph ph-squares-four"></i> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="extintores.html" class="nav-link">
+                    <i class="ph ph-fire"></i> Extintores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="movimentacoes.html" class="nav-link">
+                    <i class="ph ph-arrows-left-right"></i> Movimentações
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="categorias.html" class="nav-link">
+                    <i class="ph ph-tree-structure"></i> Categorias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="localizacoes.html" class="nav-link">
+                    <i class="ph ph-map-pin"></i> Localizações
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-link">
+                <i class="ph ph-sign-out"></i> Sair
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <h1>Dashboard</h1>
+            <p>Bem-vindo ao sistema de gerenciamento de extintores</p>
+        </header>
+
+        <section class="cards-grid">
+            <div href="extintores.html" class="card">
+                <div class="card-icon icon-red">
+                    <i class="ph ph-fire"></i>
+                </div>
+                <h3>Extintores</h3>
+                <p>Gerencie todos os extintores cadastrados</p>
+            </div>
+
+            <div href="movimentacoes.html" class="card">
+                <div class="card-icon icon-blue">
+                    <i class="ph ph-arrows-left-right"></i>
+                </div>
+                <h3>Movimentações</h3>
+                <p>Controle as movimentações de extintores</p>
+            </div>
+
+            <div href="categorias.html" class="card">
+                <div class="card-icon icon-purple">
+                    <i class="ph ph-tree-structure"></i>
+                </div>
+                <h3>Categorias</h3>
+                <p>Organize por categorias</p>
+            </div>
+
+            <div href="localizacoes.html" class="card">
+                <div class="card-icon icon-green">
+                    <i class="ph ph-map-pin"></i>
+                </div>
+                <h3>Localizações</h3>
+                <p>Gerencie as localizações</p>
+            </div>
+        </section>
+    </main>
+    <script src="./scripts/logout.js"></script>
+</body>
+</html>
