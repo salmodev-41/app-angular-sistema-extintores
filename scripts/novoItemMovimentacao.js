@@ -11,8 +11,7 @@
 
 const parametrosUrl = new URLSearchParams(window.location.search);
 const movimentoId = parametrosUrl.get('movimentoId');
-const extintorParaEditar = parametrosUrl.get('extintor');
-
+const itemIdParaEditar = parametrosUrl.get('itemId');
 if (!movimentoId) {
   alert('Nenhuma movimentação selecionada.');
   window.location.href = 'movimentacoes.html';
@@ -44,55 +43,92 @@ const popularSelectDestino = async () => {
   selectDestino.innerHTML = `<option value="" disabled selected>Selecione a localização de destino</option>${opcoes}`;
 };
 
-const carregarParaEdicao = async (extintor) => {
+const carregarParaEdicao = async (itemId) => {
   try {
-    const item = await apiGet(`movimentacoes/${movimentoId}/itens/${extintor}`);
+    const item = await apiGet(`movimento-itens/${itemId}`);
 
-    selectExtintor.value = item.extintor;
-    selectExtintor.disabled = true; // não faz sentido trocar o extintor de um item existente
-    selectDestino.value = item.destino;
-    inputTipo.value = item.tipo;
+    selectExtintor.value = item.extintor?.numero ?? '';
+    selectExtintor.disabled = true;
+
+    selectDestino.value = item.destino?.id ?? '';
+
+    inputTipo.value = item.tipoMovimentoItem ?? '';
+
     inputTipoRetorno.value = item.tipoRetorno ?? '';
-    inputCargaVencimento.value = item.cargaVencimento;
-    inputCargaProxInspecao.value = item.cargaProxInspecao;
+
+    inputCargaVencimento.value = item.cargaVencimento ?? '';
+
+    inputCargaProxInspecao.value = item.dataProxInspecao ?? '';
+
     inputNumeroSubstituto.value = item.numeroSubstituto ?? '';
+
     checkboxConferido.checked = !!item.conferido;
 
-    document.querySelector('h1').textContent = 'Editar Item de Movimentação';
+    document.querySelector('h1').textContent =
+      'Editar Item de Movimentação';
+
     btnSalvar.textContent = 'Salvar Alterações';
+
   } catch (erro) {
+    console.error(erro);
+
     mostrarErro('Não foi possível carregar este item.');
-    window.location.href = `movimentacaoItens.html?movimentoId=${movimentoId}`;
+
+    window.location.href =
+      `movimentacaoItens.html?movimentoId=${movimentoId}`;
   }
 };
 
 const coletarDados = () => ({
-  movimento: parseInt(movimentoId, 10),
-  extintor: selectExtintor.value,
-  destino: parseInt(selectDestino.value, 10),
-  tipo: inputTipo.value.trim(),
+  movimentoId: parseInt(movimentoId, 10),
+  extintorNumero: selectExtintor.value,
+  destinoId: parseInt(selectDestino.value, 10),
+  tipoMovimentoItem: inputTipo.value.trim(),
   conferido: checkboxConferido.checked,
   tipoRetorno: inputTipoRetorno.value.trim() || null,
   cargaVencimento: inputCargaVencimento.value,
-  cargaProxInspecao: inputCargaProxInspecao.value,
-  numeroSubstituto: inputNumeroSubstituto.value.trim() || null
+  dataProxInspecao: inputCargaProxInspecao.value,
+  numeroSubstituto: inputNumeroSubstituto.value.trim() || ''
 });
 
 const salvarItem = async (evento) => {
   evento.preventDefault();
 
   const dados = coletarDados();
+
   btnSalvar.disabled = true;
 
   try {
-    if (extintorParaEditar) {
-      await apiPut(`movimentacoes/${movimentoId}/itens`, extintorParaEditar, dados);
+
+    if (itemIdParaEditar) {
+
+      await apiPut(
+        'movimento-itens',
+        itemIdParaEditar,
+        dados
+      );
+
     } else {
-      await apiPost(`movimentacoes/${movimentoId}/itens`, dados);
+
+      await apiPost(
+        'movimento-itens',
+        dados
+      );
     }
-    window.location.href = `movimentacaoItens.html?movimentoId=${movimentoId}`;
+
+    window.location.href =
+      `movimentacaoItens.html?movimentoId=${movimentoId}`;
+
   } catch (erro) {
-    mostrarErro('Erro ao salvar o item. Verifique os dados.');
+
+    console.error(erro);
+
+    mostrarErro(
+      itemIdParaEditar
+        ? 'Erro ao atualizar o item.'
+        : 'Erro ao cadastrar o item.'
+    );
+
     btnSalvar.disabled = false;
   }
 };
@@ -106,7 +142,7 @@ btnCancelar.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', async () => {
   await Promise.all([popularSelectExtintores(), popularSelectDestino()]);
 
-  if (extintorParaEditar) {
-    await carregarParaEdicao(extintorParaEditar);
+  if (itemIdParaEditar) {
+    await carregarParaEdicao(itemIdParaEditar);
   }
 });

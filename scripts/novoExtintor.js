@@ -67,8 +67,12 @@ const carregarParaEdicao = async (numero) => {
 };
 
 const coletarDadosDoFormulario = () => {
-  // Limpa o input de capacidade (ex: troca vírgula por ponto e remove letras se houver)
-  const capacidadeLimpa = inputCapacidade.value.toString().replace(',', '.').replace(/[^0-9.]/g, '');
+  // Limpa o input de capacidade
+  const capacidadeLimpa = inputCapacidade.value
+    .toString()
+    .replace(',', '.')
+    .replace(/[^0-9.]/g, '');
+
   const cargaTotalNum = parseFloat(capacidadeLimpa);
 
   const idTipo = parseInt(selectTipo.value, 10);
@@ -76,9 +80,9 @@ const coletarDadosDoFormulario = () => {
 
   return {
     numero: inputCodigo.value.trim(),
-    tipo: { id: isNaN(idTipo) ? null : idTipo },
+    tipoId: isNaN(idTipo) ? null : idTipo,
     cargaTotal: isNaN(cargaTotalNum) ? 0 : cargaTotalNum,
-    localizacao: { id: isNaN(idLocalizacao) ? null : idLocalizacao },
+    localizacaoId: isNaN(idLocalizacao) ? null : idLocalizacao,
     cargaVencimento: inputDataValidade.value,
     dataProxInspecao: inputDataProxInspecao.value,
     situacao: selectStatus.value,
@@ -92,10 +96,10 @@ const salvarExtintor = async (evento) => {
   const dados = coletarDadosDoFormulario();
 
   // Validação preventiva antes de enviar para o backend
-  if (!dados.tipo.id || !dados.localizacao.id) {
-    alert('Por favor, selecione um Tipo e uma Localização válidos.');
-    return;
-  }
+  if (!dados.tipoId || !dados.localizacaoId) {
+  alert('Por favor, selecione um Tipo e uma Localização válidos.');
+  return;
+}
 
   btnSalvar.disabled = true;
 
