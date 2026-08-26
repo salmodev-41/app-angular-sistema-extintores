@@ -25,8 +25,7 @@ const renderizarLocalizacoes = (localizacoes) => {
 
   tbodyLocalizacoes.innerHTML = localizacoes.map((loc) => `
     <tr data-id="${loc.id}">
-      <td>${loc.id}</td>
-      <td>${loc.empresa?.descricao ?? 'Desconhecida'}</td>
+      <td>${loc.empresa?.codigo ?? 'Desconhecida'}</td>
       <td>${loc.descricao}</td>
       <td>${loc.centroCusto}</td>
       <td>${loc.tipo}</td>

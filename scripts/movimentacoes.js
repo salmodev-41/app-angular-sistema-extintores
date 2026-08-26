@@ -28,9 +28,8 @@ const renderizarMovimentacoes = (movimentacoes) => {
 
   tbodyMovimentacoes.innerHTML = movimentacoes.map((mov) => `
     <tr data-id="${mov.id}">
-      <td>${mov.id}</td>
-      <td>${mov.empresa?.descricao ?? 'Desconhecida'}</td>
-      <td>${mov.empresaDestino?.descricao ?? 'Desconhecida'}</td>
+      <td>${mov.empresa?.codigo ?? 'Desconhecida'}</td>
+      <td>${mov.empresaDestino?.codigo ?? 'Desconhecida'}</td>
       <td>${formatarData(mov.data)}</td>
       <td>${mov.tipo}</td>
       <td>

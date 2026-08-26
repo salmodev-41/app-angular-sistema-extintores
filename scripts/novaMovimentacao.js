@@ -26,8 +26,8 @@ const carregarParaEdicao = async (id) => {
   try {
     const movimentacao = await apiGet(`movimentacoes/${id}`);
 
-    inputEmpresa.value = movimentacao.empresa;
-    inputEmpresaDestino.value = movimentacao.empresaDestino;
+    inputEmpresa.value = movimentacao.empresa?.codigo ?? '';
+    inputEmpresaDestino.value = movimentacao.empresaDestino?.codigo ?? '';
     selectTipo.value = movimentacao.tipo;
     inputData.value = movimentacao.data; // já vem em aaaa-mm-dd
 

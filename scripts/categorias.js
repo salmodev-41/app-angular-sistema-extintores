@@ -22,7 +22,6 @@ const renderizarCategorias = (categorias) => {
 
   tbodyCategorias.innerHTML = categorias.map((cat) => `
     <tr data-id="${cat.id}">
-      <td>${cat.id}</td>
       <td>${cat.descricao}</td>
       <td>${cat.unidade}</td>
       <td>${cat.periodoInspecao}</td>
