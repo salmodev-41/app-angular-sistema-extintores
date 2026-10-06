@@ -1,0 +1,22 @@
+<main class="main-content">
+  <div class="back-link"><a routerLink="/extintores"><i class="ph ph-arrow-left"></i> Voltar</a></div>
+  <header class="page-header"><div class="page-title"><h1>{{ editNumero ? 'Editar Extintor' : 'Novo Extintor' }}</h1><p>{{ editNumero ? 'Atualize os dados do extintor' : 'Preencha os dados do novo extintor' }}</p></div></header>
+  <section class="content-card">
+    <form (ngSubmit)="save()">
+      <div class="form-grid">
+        <div class="form-group"><label for="codigo">Número *</label><input id="codigo" name="numero" type="text" placeholder="Ex: EXT001" required [readonly]="!!editNumero" [(ngModel)]="extintor.numero"></div>
+        <div class="form-group"><label for="tipo-extintor">Tipo *</label><select id="tipo-extintor" name="tipoId" required [(ngModel)]="extintor.tipoId"><option value="" disabled>Selecione o tipo</option><option *ngFor="let category of categorias" [value]="category.id">{{ category.descricao }}</option></select></div>
+        <div class="form-group"><label for="capacidade">Capacidade (kg) *</label><input id="capacidade" name="cargaTotal" type="number" step="0.1" placeholder="Ex: 6" required [(ngModel)]="extintor.cargaTotal"></div>
+        <div class="form-group"><label for="localizacao-extintor">Localização *</label><select id="localizacao-extintor" name="localizacaoId" required [(ngModel)]="extintor.localizacaoId"><option value="" disabled>Selecione a localização</option><option *ngFor="let location of localizacoes" [value]="location.id">{{ location.descricao }}</option></select></div>
+        <div class="form-group"><label for="dataValidade">Data de Validade *</label><input id="dataValidade" name="cargaVencimento" type="date" required [(ngModel)]="extintor.cargaVencimento"></div>
+        <div class="form-group"><label for="dataProxInspecao">Data Próx. Inspeção *</label><input id="dataProxInspecao" name="dataProxInspecao" type="date" required [(ngModel)]="extintor.dataProxInspecao"></div>
+        <div class="form-group"><label for="status">Status *</label><select id="status" name="situacao" required [(ngModel)]="extintor.situacao"><option value="A">Ativo</option><option value="I">Inativo</option><option value="R">Recarga</option><option value="S">Substituído</option></select></div>
+        <div class="form-group"><label for="centroCusto">Centro de Custo *</label><input id="centroCusto" name="centroCusto" type="text" placeholder="Ex: CC-102" required [(ngModel)]="extintor.centroCusto"></div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="saving">{{ editNumero ? 'Salvar Alterações' : 'Cadastrar' }}</button>
+      </div>
+    </form>
+  </section>
+</main>

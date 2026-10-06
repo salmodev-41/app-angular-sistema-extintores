@@ -1,0 +1,28 @@
+<main class="main-content">
+  <header class="page-header">
+    <div class="page-title"><h1>Localizações</h1><p>Gerencie as localizações onde os extintores estão instalados</p></div>
+    <a routerLink="/localizacoes/nova" class="btn-primary"><i class="ph ph-plus"></i> Nova Localização</a>
+  </header>
+  <section class="content-card">
+    <div class="search-container">
+      <i class="ph ph-magnifying-glass"></i>
+      <input type="text" placeholder="Buscar por empresa, descrição ou tipo..." [(ngModel)]="searchTerm">
+    </div>
+    <div class="table-container">
+      <table class="data-table">
+        <thead><tr><th>Empresa</th><th>Descrição</th><th>Centro de Custo</th><th>Tipo</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let location of visibleLocalizacoes">
+            <td>{{ location.empresa?.codigo ?? 'Desconhecida' }}</td><td>{{ location.descricao }}</td>
+            <td>{{ location.centroCusto }}</td><td>{{ location.tipo }}</td>
+            <td><div class="actions">
+              <button class="action-btn edit" title="Editar" (click)="edit(location.id)"><i class="ph ph-pencil"></i></button>
+              <button class="action-btn delete" title="Excluir" (click)="delete(location.id)"><i class="ph ph-trash"></i></button>
+            </div></td>
+          </tr>
+          <tr *ngIf="visibleLocalizacoes.length === 0"><td colspan="5" class="empty-row">Nenhuma localização encontrada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

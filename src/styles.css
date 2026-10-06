@@ -1,0 +1,62 @@
+app-root {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+app-home,
+app-login,
+app-categoria-list,
+app-categoria-form,
+app-localizacao-list,
+app-localizacao-form,
+app-extintor-list,
+app-extintor-form,
+app-movimentacao-list,
+app-movimentacao-form,
+app-movimentacao-itens-list,
+app-movimentacao-item-form {
+  display: block;
+  flex: 1;
+  min-width: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+.angular-page {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #1b3652;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page app-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page .login {
+  width: calc(100% - 32px);
+}
+
+.cards-grid .card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.empty-row {
+  text-align: center;
+}

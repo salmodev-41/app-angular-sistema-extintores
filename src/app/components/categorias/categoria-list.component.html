@@ -1,0 +1,28 @@
+<main class="main-content">
+  <header class="page-header">
+    <div class="page-title"><h1>Categorias</h1><p>Gerencie as categorias dos extintores</p></div>
+    <a routerLink="/categorias/nova" class="btn-primary"><i class="ph ph-plus"></i> Nova Categoria</a>
+  </header>
+  <section class="content-card">
+    <div class="search-container">
+      <i class="ph ph-magnifying-glass"></i>
+      <input type="text" placeholder="Buscar por descrição ou unidade..." [(ngModel)]="searchTerm">
+    </div>
+    <div class="table-container">
+      <table class="data-table">
+        <thead><tr><th>Descrição</th><th>Unidade</th><th>Período Inspeção (meses)</th><th>Período Validade (meses)</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let category of visibleCategorias">
+            <td>{{ category.descricao }}</td><td>{{ category.unidade }}</td>
+            <td>{{ category.periodoInspecao }}</td><td>{{ category.periodoValidade }}</td>
+            <td><div class="actions">
+              <button class="action-btn edit" title="Editar" (click)="edit(category.id)"><i class="ph ph-pencil"></i></button>
+              <button class="action-btn delete" title="Excluir" (click)="delete(category.id)"><i class="ph ph-trash"></i></button>
+            </div></td>
+          </tr>
+          <tr *ngIf="visibleCategorias.length === 0"><td colspan="5" class="empty-row">Nenhuma categoria encontrada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

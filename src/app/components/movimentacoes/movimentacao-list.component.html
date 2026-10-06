@@ -1,0 +1,29 @@
+<main class="main-content">
+  <header class="page-header">
+    <div class="page-title"><h1>Movimentações</h1><p>Gerencie as movimentações de extintores</p></div>
+    <a routerLink="/movimentacoes/nova" class="btn-primary"><i class="ph ph-plus"></i> Nova Movimentação</a>
+  </header>
+  <section class="content-card">
+    <div class="search-container">
+      <i class="ph ph-magnifying-glass"></i>
+      <input type="text" placeholder="Buscar por empresa ou destino..." [(ngModel)]="searchTerm">
+    </div>
+    <div class="table-container">
+      <table class="data-table">
+        <thead><tr><th>Empresa</th><th>Empresa Destino</th><th>Data</th><th>Tipo</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let movement of visibleMovimentacoes">
+            <td>{{ movement.empresa?.codigo ?? 'Desconhecida' }}</td><td>{{ movement.empresaDestino?.codigo ?? 'Desconhecida' }}</td>
+            <td>{{ formatDate(movement.data) }}</td><td>{{ movement.tipo }}</td>
+            <td><div class="actions">
+              <button class="action-btn edit" title="Editar" (click)="edit(movement.id)"><i class="ph ph-pencil"></i></button>
+              <button class="action-btn delete" title="Excluir" (click)="delete(movement.id)"><i class="ph ph-trash"></i></button>
+              <button class="action-btn itens" title="Ver Itens" (click)="showItems(movement.id)"><i class="ph ph-list-bullets"></i></button>
+            </div></td>
+          </tr>
+          <tr *ngIf="visibleMovimentacoes.length === 0"><td colspan="5" class="empty-row">Nenhuma movimentação encontrada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

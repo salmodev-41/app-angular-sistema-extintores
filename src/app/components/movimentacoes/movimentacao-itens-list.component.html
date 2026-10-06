@@ -1,0 +1,29 @@
+<main class="main-content">
+  <div class="back-link"><a routerLink="/movimentacoes"><i class="ph ph-arrow-left"></i> Voltar</a></div>
+  <header class="page-header">
+    <div class="page-title"><h1>Itens da Movimentação</h1><p>Gerencie os extintores desta movimentação</p></div>
+    <a [routerLink]="['/movimentacoes/itens/novo']" [queryParams]="{ movimentoId: movimentoId }" class="btn-primary">
+      <i class="ph ph-plus"></i> Novo Item
+    </a>
+  </header>
+  <section class="content-card">
+    <div class="table-container">
+      <table class="data-table">
+        <thead><tr><th>Extintor</th><th>Destino</th><th>Tipo</th><th>Conferido</th><th>Tipo Retorno</th><th>Carga Vencimento</th><th>Próx. Inspeção</th><th>Nº Substituto</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let movementItem of itens">
+            <td>{{ movementItem.extintor?.numero ?? '-' }}</td><td>{{ movementItem.destino?.descricao ?? '-' }}</td>
+            <td>{{ movementItem.tipoMovimentoItem ?? '-' }}</td><td>{{ movementItem.conferido ? 'Sim' : 'Não' }}</td>
+            <td>{{ movementItem.tipoRetorno ?? '-' }}</td><td>{{ formatDate(movementItem.cargaVencimento) }}</td>
+            <td>{{ formatDate(movementItem.dataProxInspecao) }}</td><td>{{ movementItem.numeroSubstituto || '-' }}</td>
+            <td><div class="actions">
+              <button class="action-btn edit" title="Editar" (click)="edit(movementItem.id)"><i class="ph ph-pencil"></i></button>
+              <button class="action-btn delete" title="Excluir" (click)="delete(movementItem.id)"><i class="ph ph-trash"></i></button>
+            </div></td>
+          </tr>
+          <tr *ngIf="itens.length === 0"><td colspan="9" class="empty-row">Nenhum item cadastrado nesta movimentação.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

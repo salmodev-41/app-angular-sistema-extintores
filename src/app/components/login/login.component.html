@@ -1,0 +1,14 @@
+<div class="login">
+  <h2>Controle de Extintores</h2>
+  <form (ngSubmit)="login()">
+    <div class="input">
+      <label for="usuario">Usuário</label>
+      <input id="usuario" name="usuario" type="text" placeholder="Digite seu usuário" required [(ngModel)]="loginForm.usuario">
+    </div>
+    <div class="input">
+      <label for="senha">Senha</label>
+      <input id="senha" name="senha" type="password" placeholder="Digite sua senha" required [(ngModel)]="loginForm.senha">
+    </div>
+    <button type="submit" class="btn-entrar" [disabled]="saving">Entrar</button>
+  </form>
+</div>

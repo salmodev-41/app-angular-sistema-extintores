@@ -1,0 +1,21 @@
+<main class="content">
+  <div class="header-content">
+    <div class="header-left">
+      <a routerLink="/categorias" class="back-button"><i class="ph ph-arrow-left"></i>Voltar</a>
+      <h1>{{ editId ? 'Editar Categoria' : 'Nova Categoria' }}</h1>
+      <p class="subtitle">{{ editId ? 'Atualize os dados da categoria' : 'Preencha os dados da nova categoria' }}</p>
+    </div>
+  </div>
+  <div class="form-panel">
+    <form (ngSubmit)="save()">
+      <div class="form-group"><label for="descricao">Descrição <span class="required">*</span></label><input id="descricao" name="descricao" type="text" placeholder="Ex: Classe A" required [(ngModel)]="categoria.descricao"></div>
+      <div class="form-group"><label for="unidade">Unidade <span class="required">*</span></label><input id="unidade" name="unidade" type="text" placeholder="Ex: kg, L" required [(ngModel)]="categoria.unidade"></div>
+      <div class="form-group"><label for="periodo-inspecao">Período de Inspeção (meses) <span class="required">*</span></label><input id="periodo-inspecao" name="periodoInspecao" type="number" required [(ngModel)]="categoria.periodoInspecao"></div>
+      <div class="form-group"><label for="periodo-validade">Período de Validade (meses) <span class="required">*</span></label><input id="periodo-validade" name="periodoValidade" type="number" required [(ngModel)]="categoria.periodoValidade"></div>
+      <div class="action-buttons">
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="saving">{{ editId ? 'Salvar Alterações' : 'Cadastrar' }}</button>
+      </div>
+    </form>
+  </div>
+</main>

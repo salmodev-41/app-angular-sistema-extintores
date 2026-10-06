@@ -1,0 +1,40 @@
+<div class="angular-page" [class.login-page]="isLogin">
+  <aside *ngIf="!isLogin" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Sistema de Extintores</h2>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+          <i class="ph ph-squares-four"></i> Início
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/extintores" routerLinkActive="active" class="nav-link">
+          <i class="ph ph-fire"></i> Extintores
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/movimentacoes" routerLinkActive="active" class="nav-link">
+          <i class="ph ph-arrows-left-right"></i> Movimentações
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/categorias" routerLinkActive="active" class="nav-link">
+          <i class="ph ph-tree-structure"></i> Categorias
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/localizacoes" routerLinkActive="active" class="nav-link">
+          <i class="ph ph-map-pin"></i> Localizações
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <a routerLink="/login" (click)="logout()" class="nav-link">
+        <i class="ph ph-sign-out"></i> Sair
+      </a>
+    </div>
+  </aside>
+  <router-outlet></router-outlet>
+</div>

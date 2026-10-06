@@ -1,0 +1,22 @@
+<main class="main-content">
+  <div class="back-link"><a [routerLink]="['/movimentacoes/itens']" [queryParams]="{ movimentoId: movimentoId }"><i class="ph ph-arrow-left"></i> Voltar</a></div>
+  <header class="page-header"><div class="page-title"><h1>{{ itemId ? 'Editar Item de Movimentação' : 'Novo Item de Movimentação' }}</h1><p>Preencha os dados do extintor movimentado</p></div></header>
+  <section class="content-card">
+    <form (ngSubmit)="save()">
+      <div class="form-grid">
+        <div class="form-group"><label for="extintor">Extintor *</label><select id="extintor" name="extintorNumero" required [disabled]="!!itemId" [(ngModel)]="item.extintorNumero"><option value="" disabled>Selecione o extintor</option><option *ngFor="let extinguisher of extintores" [value]="extinguisher.numero">{{ extinguisher.numero }}</option></select></div>
+        <div class="form-group"><label for="destino">Destino *</label><select id="destino" name="destinoId" required [(ngModel)]="item.destinoId"><option value="" disabled>Selecione a localização de destino</option><option *ngFor="let location of localizacoes" [value]="location.id">{{ location.descricao }}</option></select></div>
+        <div class="form-group"><label for="tipo-item">Tipo *</label><select id="tipo-item" name="tipoMovimentoItem" required [(ngModel)]="item.tipoMovimentoItem"><option value="" disabled>Selecione o tipo</option><option value="R">Recarga</option><option value="I">Inspeção</option></select></div>
+        <div class="form-group"><label for="tipo-retorno">Tipo de Retorno</label><select id="tipo-retorno" name="tipoRetorno" [(ngModel)]="item.tipoRetorno"><option value="">Nenhum</option><option value="R">Recarregado</option><option value="I">Inspecionado</option><option value="S">Substituído</option><option value="D">Descartado</option><option value="E">Estoque</option></select></div>
+        <div class="form-group"><label for="carga-vencimento">Carga Vencimento *</label><input id="carga-vencimento" name="cargaVencimento" type="date" required [(ngModel)]="item.cargaVencimento"></div>
+        <div class="form-group"><label for="carga-prox-inspecao">Próxima Inspeção *</label><input id="carga-prox-inspecao" name="dataProxInspecao" type="date" required [(ngModel)]="item.dataProxInspecao"></div>
+        <div class="form-group"><label for="numero-substituto">Número do Substituto</label><input id="numero-substituto" name="numeroSubstituto" type="text" placeholder="Ex: EXT004 (se houve troca)" [(ngModel)]="item.numeroSubstituto"></div>
+        <div class="form-group checkbox-group"><label for="conferido"><input id="conferido" name="conferido" type="checkbox" [(ngModel)]="item.conferido"> Conferido</label></div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="saving">{{ itemId ? 'Salvar Alterações' : 'Cadastrar' }}</button>
+      </div>
+    </form>
+  </section>
+</main>

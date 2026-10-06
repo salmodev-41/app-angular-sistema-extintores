@@ -1,0 +1,31 @@
+<main class="main-content">
+  <header class="page-header">
+    <div class="header-info"><h1>Extintores</h1><p>Gerencie todos os extintores cadastrados</p></div>
+    <a routerLink="/extintores/novo" class="btn-primary"><i class="ph ph-plus"></i> Novo Extintor</a>
+  </header>
+  <section class="content-card">
+    <div class="search-container">
+      <i class="ph ph-magnifying-glass"></i>
+      <input type="text" placeholder="Buscar por número, tipo ou localização..." [(ngModel)]="searchTerm">
+    </div>
+    <div class="table-container">
+      <table class="data-table">
+        <thead><tr><th>Número</th><th>Tipo</th><th>Capacidade</th><th>Localização</th><th>Centro de Custo</th><th>Data Validade</th><th>Data Próx. Inspeção</th><th>Status</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let extinguisher of visibleExtintores">
+            <td>{{ extinguisher.numero }}</td><td>{{ extinguisher.tipo?.descricao ?? 'Desconhecido' }}</td>
+            <td>{{ extinguisher.cargaTotal }}</td><td>{{ extinguisher.localizacao?.descricao ?? 'Desconhecida' }}</td>
+            <td>{{ extinguisher.centroCusto || '-' }}</td><td>{{ formatDate(extinguisher.cargaVencimento) }}</td>
+            <td>{{ formatDate(extinguisher.dataProxInspecao) }}</td>
+            <td><span class="badge">{{ statusLabel(extinguisher.situacao) }}</span></td>
+            <td><div class="actions">
+              <button class="btn-icon edit" title="Editar" (click)="edit(extinguisher.numero)"><i class="ph ph-pencil-simple"></i></button>
+              <button class="btn-icon delete" title="Excluir" (click)="delete(extinguisher.numero)"><i class="ph ph-trash"></i></button>
+            </div></td>
+          </tr>
+          <tr *ngIf="visibleExtintores.length === 0"><td colspan="9" class="empty-row">Nenhum extintor encontrado.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

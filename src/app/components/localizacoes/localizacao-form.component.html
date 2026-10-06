@@ -1,0 +1,25 @@
+<main class="content">
+  <a routerLink="/localizacoes" class="back-button"><i class="ph ph-arrow-left"></i>Voltar</a>
+  <h1>{{ editId ? 'Editar Localização' : 'Nova Localização' }}</h1>
+  <p class="subtitle">{{ editId ? 'Atualize os dados da localização' : 'Preencha os dados da nova localização' }}</p>
+  <div class="form-panel">
+    <form (ngSubmit)="save()">
+      <div class="form-grid">
+        <div class="form-group" *ngIf="editId"><label for="codigo">Código</label><input id="codigo" type="text" [value]="editId" readonly></div>
+        <div class="form-group"><label for="empresa">Código da Empresa <span class="required">*</span></label><input id="empresa" name="empresa" type="text" placeholder="Ex: Matriz" required [(ngModel)]="localizacao.empresaCodigo"></div>
+        <div class="form-group"><label for="descricao-localizacao">Descrição <span class="required">*</span></label><input id="descricao-localizacao" name="descricao" type="text" placeholder="Ex: Recepção" required [(ngModel)]="localizacao.descricao"></div>
+        <div class="form-group"><label for="centro-custo">Centro de Custo <span class="required">*</span></label><input id="centro-custo" name="centroCusto" type="text" placeholder="Ex: ADM-001" required [(ngModel)]="localizacao.centroCusto"></div>
+        <div class="form-group">
+          <label for="tipo-localizacao">Tipo <span class="required">*</span></label>
+          <select id="tipo-localizacao" name="tipo" required [(ngModel)]="localizacao.tipo">
+            <option value="" disabled>Selecione o tipo</option><option value="E">Estrutura</option><option value="V">Veículo/Máquinas</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="saving">{{ editId ? 'Salvar Alterações' : 'Cadastrar' }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
